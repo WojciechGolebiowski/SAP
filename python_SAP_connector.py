@@ -32,6 +32,7 @@ def get_sap_client():
 ses = get_sap_client()
 
 DESKTOP_PATH = ""
+CREATED_FROM = "" #dd.mm.yyyy
 
 ses.findById("wnd[0]/tbar[0]/okcd").text = "/nse16n"
 ses.findById("wnd[0]").sendVKey(0)
@@ -44,7 +45,7 @@ ses.findById("wnd[1]/usr/cntlGRID/shellcont/shell").setCurrentCell(6,"TEXT")
 ses.findById("wnd[1]/usr/cntlGRID/shellcont/shell").selectedRows = "6"
 ses.findById("wnd[1]/tbar[0]/btn[0]").press()
 ses.findById("wnd[0]/usr/txtGD-MAX_LINES").text = "5000"
-ses.findById("wnd[0]/usr/tblSAPLSE16NSELFIELDS_TC/ctxtGS_SELFIELDS-LOW[2,2]").text = "30.11.2023"
+ses.findById("wnd[0]/usr/tblSAPLSE16NSELFIELDS_TC/ctxtGS_SELFIELDS-LOW[2,2]").text = CREATED_FROM
 ses.findById("wnd[0]/tbar[1]/btn[8]").press()
 #EXPORT WINDOW
 ses.findById("wnd[0]/usr/cntlRESULT_LIST/shellcont/shell").pressToolbarContextButton("&MB_EXPORT")
